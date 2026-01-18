@@ -21,7 +21,7 @@ export default function App() {
   const [pageDesc, setPageDesc] = useState('Provide project details to initiate setup. This process may take a few minutes.');
   const [purpose, setPurpose] = useState<string>("");
   const [existingProject, setExistingProject] = useState<string>("");
-  
+
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -147,7 +147,7 @@ export default function App() {
           {currentStep === 'tool-configuration' && (
             <>
               <ToolConfiguration />
-              <ActionButtons onDiscard={handleDiscard} onContinue={handleContinue} isBackButtinShoewn={true} isContinueDisabled={true} />
+              <ActionButtons onDiscard={handleDiscard} onBackButton={handleBack} onContinue={handleContinue} isBackButtinShoewn={true} isContinueDisabled={true} />
             </>
           )}
 
@@ -155,7 +155,7 @@ export default function App() {
           {currentStep === 'access-approval' && (
             <>
               <AccessApproval />
-              <ActionButtons onDiscard={handleDiscard} onContinue={handleContinue} isBackButtinShoewn={true} isContinueDisabled={true} />
+              <ActionButtons onDiscard={handleDiscard} onBackButton={handleBack} onContinue={handleContinue} isBackButtinShoewn={true} isContinueDisabled={true} />
             </>
           )}
 
@@ -167,7 +167,7 @@ export default function App() {
                 onDiscard={handleDiscard}
                 onBack={handleBack}
               />
-              <ActionButtons onDiscard={handleDiscard} onContinue={handleContinue} isBackButtinShoewn={true} isSubmitDisabled={true} />
+              <ActionButtons onDiscard={handleDiscard} onBackButton={handleBack} onContinue={handleContinue} isBackButtinShoewn={true} isSubmitDisabled={true} />
             </>
           )}
         </div>

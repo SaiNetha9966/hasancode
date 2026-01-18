@@ -4,12 +4,13 @@ import styles from './ActionButtons.module.css';
 interface ActionButtonsProps {
   onDiscard?: () => void;
   onContinue?: () => void;
+  onBackButton?: () => void;
   isBackButtinShoewn?: boolean;
   isContinueDisabled?: boolean;
   isSubmitDisabled?: boolean;
 }
 
-export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDiscard, onContinue, isBackButtinShoewn, isContinueDisabled, isSubmitDisabled }) => {
+export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDiscard, onContinue, onBackButton, isBackButtinShoewn, isContinueDisabled, isSubmitDisabled }) => {
   return (
     <div className={styles.container}>
       <button className={`${styles.button} ${styles.discardButton}`} onClick={onDiscard}>
@@ -18,7 +19,7 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({ onDiscard, onConti
       <div style={{ display: 'flex', gap: '12px' }}>
         {
           isBackButtinShoewn && (
-            <button className={`${styles.button} ${styles.discardButton}`} onClick={onDiscard}>
+            <button className={`${styles.button} ${styles.discardButton}`} onClick={onBackButton}>
               Back
             </button>
           )
