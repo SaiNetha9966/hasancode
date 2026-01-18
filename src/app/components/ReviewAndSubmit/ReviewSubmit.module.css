@@ -374,6 +374,7 @@
   align-items: center;
   margin-bottom: 20px;
 }
+
 .detailsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -428,6 +429,7 @@
   flex-direction: column;
   gap: 6px;
 }
+
 .accessList {
   display: flex;
   flex-direction: column;
@@ -536,6 +538,182 @@
 
 .toolCheckbox span {
   color: #666;
+}
+
+/* Memo card body */
+.memoBody {
+  display: grid;
+  background: var(--card-bg, #fff);
+  color: var(--text-color, #222);
+  align-items: start;
+}
+
+/* Label above textarea */
+.memoBody .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted-text, #444);
+}
+
+/* Textarea */
+.memoTextarea {
+  width: 100%;
+  min-height: 72px;
+  max-height: 160px;
+  resize: vertical;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  border: 1px solid var(--border, #d1d5db);
+  border-radius: 6px;
+  background: var(--input-bg, #fff);
+  color: var(--text-color, #111);
+  transition: box-shadow .12s ease, border-color .12s ease;
+  box-sizing: border-box;
+}
+
+/* Textarea focus state */
+.memoTextarea:focus {
+  outline: none;
+  border-color: var(--accent, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* Character counter aligned to the right */
+.memoCounter {
+  justify-self: end;
+  font-size: 12px;
+  color: var(--muted-text, #6b7280);
+}
+
+/* Attestation paragraph */
+.attestation {
+  font-size: 13px;
+  color: var(--muted-text, #4b5563);
+  line-height: 1.45;
+  margin: 6px 0 0 0;
+}
+
+/* Checkbox row */
+.attestationCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Native checkbox styling reset */
+.attestationCheckbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent, #2563eb);
+  cursor: pointer;
+}
+
+/* Make the attestation text slightly bolder for emphasis */
+.attestationCheckbox span {
+    font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* Regular */
+    font-size: 14px;
+    line-height: 14px;
+    /* 100% of 14px */
+    letter-spacing: 0;
+    /* 0% */
+    display: inline-block;
+    /* helps control vertical spacing precisely */
+    vertical-align: baseline;
+    /* adjust if you need different alignment */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.attestationCheckbox input[type="checkbox"] {
+  /* Remove default styles */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Checked state */
+.attestationCheckbox input[type="checkbox"]:checked {
+  background-color: green;
+  border-color: green;
+}
+
+/* White checkmark */
+.attestationCheckbox input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+}
+
+
+.textareaWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.textarea {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  padding-bottom: 28px;
+  /* Make room for counter */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #878787;
+  line-height: 16px;
+  resize: vertical;
+  min-height: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wordCounter {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  text-align: right;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #878787;
+  pointer-events: none;
+  /* Allow clicking through to textarea */
+}
+
+/* Small responsive tweaks */
+@media (max-width: 640px) {
+  .memoBody {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .memoTextarea {
+    min-height: 64px;
+  }
+
+  .memoCounter {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 900px) {

@@ -27,10 +27,10 @@ const sampleTools = {
 };
 
 const sampleAccess = [
-  { 
-    id: 1, 
-    name: 'Brown, James', 
-    email: 'jbrown@alixpartners.com', 
+  {
+    id: 1,
+    name: 'Brown, James',
+    email: 'jbrown@alixpartners.com',
     role: 'Full Access (6 Tools)',
     tools: [
       { name: 'Teams Site', checked: true },
@@ -38,10 +38,10 @@ const sampleAccess = [
       { name: 'Company Health Check', checked: true }
     ]
   },
-  { 
-    id: 2, 
-    name: 'Smith, Emily', 
-    email: 'esmith@alixpartners.com', 
+  {
+    id: 2,
+    name: 'Smith, Emily',
+    email: 'esmith@alixpartners.com',
     role: 'Access (3 Tools)',
     tools: [
       { name: 'Teams Site', checked: true },
@@ -49,10 +49,10 @@ const sampleAccess = [
       { name: 'Company Health Check', checked: false }
     ]
   },
-  { 
-    id: 3, 
-    name: 'Doe, John', 
-    email: 'jdoe@alixpartners.com', 
+  {
+    id: 3,
+    name: 'Doe, John',
+    email: 'jdoe@alixpartners.com',
     role: 'Access (4 Tools)',
     tools: [
       { name: 'Teams Site', checked: true },
@@ -74,6 +74,14 @@ const sampleApprovers = [
 export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({ onSubmit, onDiscard, onBack }) => {
   const [agreed, setAgreed] = useState(false);
   const [openAccess, setOpenAccess] = useState<Record<number, boolean>>({});
+  const [memoText, setMemoText] = useState('');
+  const [memoChecked, setMemoChecked] = useState(false);
+  const MEMO_MAX = 80;
+
+  const handleMemoChange = (e) => {
+    const val = e.target.value.slice(0, MEMO_MAX);
+    setMemoText(val);
+  };
 
   const toggleAccess = (id: number) => {
     setOpenAccess((s) => ({ ...s, [id]: !s[id] }));
@@ -223,7 +231,7 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({ onSubmit, onDiscard,
             ))}
           </div>
         </div>
-        
+
         <div className={styles.card} style={{ gridColumn: '1 / -1' }}>
           <div className={styles.cardHeader}>
             <div className={styles.cardTitle}>User Selection & Tool Access</div>
@@ -252,8 +260,8 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({ onSubmit, onDiscard,
                     <div className={styles.toolsCheckboxes}>
                       {a.tools.map((tool, idx) => (
                         <label key={idx} className={styles.toolCheckbox}>
-                          <input 
-                            type="checkbox" 
+                          <input
+                            type="checkbox"
                             checked={tool.checked}
                             readOnly
                           />
@@ -267,7 +275,38 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({ onSubmit, onDiscard,
             ))}
           </div>
         </div>
+        <div className={styles.card} style={{ gridColumn: '1 / -1' }}>
+          <div className={styles.cardHeader}>
+            <div className={styles.cardTitle}>Memo to approving MD</div>
+          </div>
 
+          <div className={styles.memoBody}>
+            <div className={styles.textareaWrapper}>
+              <textarea
+                className={styles.textarea}
+
+                value={memoText}
+                onChange={handleMemoChange}
+
+                maxLength={80}
+              />
+              <div className={styles.wordCounter}>{memoText.length}/80</div>
+            </div>
+
+            <p className={styles.attestation}>
+              By requesting the creation of this project, you are attesting to the understanding of any client contractual obligations including but not limited to data security, privacy, and SLAs related to this data and engagement. You understand that there may be costs incurred to the Firm and/or the project's budget. The information above has been filled out to the best of your knowledge.
+            </p>
+
+            <label className={styles.attestationCheckbox}>
+              <input
+                type="checkbox"
+                checked={memoChecked}
+                onChange={(e) => setMemoChecked(e.target.checked)}
+              />
+              <span> <span style={{color:"red"}}>* </span>Yes, I understand the above statement</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   );
