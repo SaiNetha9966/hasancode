@@ -146,7 +146,7 @@
   color: #878787;
   line-height: 16px;
   resize: vertical;
-  min-height: 77px;
+  min-height: 20px;
   width: 100%;
   box-sizing: border-box;
 }
