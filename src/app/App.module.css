@@ -1,0 +1,62 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e8e8e8;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mainContent {
+  position: fixed;
+  top: 68px;
+  left: 220px;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 24px 24px;
+  transition: left 0.3s ease;
+}
+
+.contentWrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tablet screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  .mainContent {
+    left: 200px;
+    padding: 0 16px 16px;
+  }
+
+  .contentWrapper {
+    gap: 16px;
+  }
+}
+
+/* Mobile screens (up to 768px) */
+@media (max-width: 768px) {
+  .mainContent {
+    left: 0;
+    top: 48px;
+    padding: 0 12px 12px;
+  }
+
+  .contentWrapper {
+    gap: 12px;
+  }
+}
+
+/* Small mobile screens (up to 480px) */
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 0 8px 8px;
+  }
+
+  .contentWrapper {
+    gap: 10px;
+  }
+}

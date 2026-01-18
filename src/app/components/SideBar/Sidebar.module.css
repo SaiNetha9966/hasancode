@@ -1,0 +1,145 @@
+.sidebar {
+  background-color: #f5f5f5;
+  width: 220px;
+  position: fixed;
+  top: 48px;
+  left: 0;
+  bottom: 0;
+  padding: 24px 16px;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 90;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #28292c;
+  margin-bottom: 24px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.2s;
+}
+
+.menuItem:hover {
+  background-color: #e8e8e8;
+}
+
+.menuItem.active {
+  background-color: #498e2b;
+  color: white;
+}
+
+.menuItem.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.menuItem.disabled:hover {
+  background-color: transparent;
+}
+
+.menuIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.menuIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.menuItem.active .menuIcon svg path {
+  fill: white;
+}
+
+.menuLabel {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.menuItem.active .menuLabel {
+  color: white;
+}
+
+.menuItem:not(.active) .menuLabel {
+  color: #4a4a4a;
+}
+
+.menuItem.disabled .menuLabel {
+  color: #b2b2b2;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 85;
+}
+
+.overlay.show {
+  display: block;
+}
+
+/* Tablet screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+    padding: 20px 12px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .menuLabel {
+    font-size: 14px;
+  }
+}
+
+/* Mobile screens (up to 768px) */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Small mobile screens (up to 480px) */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 280px;
+    max-width: 80vw;
+  }
+
+  .menuItem {
+    padding: 10px 12px;
+  }
+}
