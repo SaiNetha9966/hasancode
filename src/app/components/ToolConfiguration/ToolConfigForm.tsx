@@ -52,21 +52,6 @@ export default function ToolConfigForm({ toolName, platform }: ToolConfigFormPro
               </svg>
             </div>
           </div>
-
-          {/* Text Input */}
-          <div className="flex flex-col gap-[6px]">
-            <label className="flex items-center gap-1 text-[12px] sm:text-[13px] md:text-[14px] font-medium text-[#b2b2b2]">
-              <span>What is the Domain Name?</span>
-              <span>*</span>
-            </label>
-            <input
-              type="text"
-              value={domainName}
-              onChange={(e) => setDomainName(e.target.value)}
-              placeholder="Enter domain name"
-              className="bg-white border border-[#ccc] rounded px-2 py-[6px] text-[12px] sm:text-[13px] md:text-[14px] text-[#4a4a4a] placeholder:text-[#878787] outline-none focus:border-[#498e2b] transition-colors"
-            />
-          </div>
         </div>
       </div>
     </div>

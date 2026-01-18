@@ -133,6 +133,7 @@ export default function ToolConfiguration() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch sm:items-center">
                 <div className="flex-1 bg-white border border-[#ccc] rounded flex flex-col">
                   <textarea
+                  style={{minHeight:"10px"}}
                     value={newToolRequest}
                     onChange={(e) => setNewToolRequest(e.target.value)}
                     placeholder="Describe the tool name and intended use"
