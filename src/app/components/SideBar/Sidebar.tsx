@@ -62,7 +62,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentStep }
     {
       id: 'project-setup',
       label: 'Project Setup',
-      icon: <ProjectSetupIcon />,
+      icon: currentStep === 'project-details' ?  <ProjectSetupIcon /> : <ReviewSubmitIcon/>,
       active: currentStep === 'project-details',
       disabled: currentStep !== 'project-details',
     },
